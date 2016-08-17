@@ -1,0 +1,12 @@
+img {
+    position: absolute;
+}
+div {
+    width: 50%;
+    height: 50%;
+    position:absolute;
+}
+#rightSide {
+    left: 35%;
+    border-left: 1px solid black;
+}

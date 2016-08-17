@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <meta charset="UTF-8">
+    <title>Part 3</title>
+</head>
+<body onload="generateFaces()">
+<h1>Matching Game</h1>
+
+<p>Click on the extra image on the left!</p>
+
+<div id="leftSide">
+</div>
+
+<div id="rightSide">
+</div>
+<script>
+    var numberOfFaces = 6;
+    var theRightSide = document.getElementById("rightSide");
+
+    //   A variable called theLeftSide is created. This points to the left side div e.g.
+    var theLeftSide = document.getElementById("leftSide");
+
+    function generateFaces() {
+
+        for (var i = 1; i < numberOfFaces; i++) {
+            var x = Math.random() * 400;
+            var y = Math.round(x);
+            var f = Math.random() * 400;
+            var z = Math.round(f);
+
+            var starImg = document.createElement("img");
+
+            starImg.setAttribute('src', 'http://simpleicon.com/wp-content/uploads/smile.png');
+            starImg.setAttribute('height', '100px');
+            starImg.setAttribute('width', '100px');
+            starImg.style.top = z + 'px';
+            starImg.style.left = y + 'px';
+            document.getElementById("leftSide").appendChild(starImg);
+            var leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.childNodes(leftSideImages.childNodes));
+            theRightSide.appendChild(leftSideImages);
+        }
+
+    }
+
+    generateFaces();
+
+
+
+
+    // In this function the faces are created in a loop. The loop executes numberOfFaces times. In each iteration:
+    //
+    //           - An img is created using createElement()
+    //           - The img src attribute is set so that the appropriate image filename is used e.g. img.src="smile.png";
+    //           - The position of an image is controlled by the top and left values. The img top value is set to be a random value in an appropriate range. For example, if the height of the div is 500 and the height of the image is 100, then an appropriate range for the random top value of the newly created image is 0 to 400. Use style.top to set this.
+    //           - The img left position is set to be a random value in an appropriate range. For example, if the width of the div is 500 and the width of the image is 100, then an appropriate range for the random left value of the newly created image is 0 to 400. Use style.left to set this.
+    //           - Add the newly created image to the leftSide div using appendChild()
+    // Start the Function
+    // When the page is loaded, call the function generateFaces() to run it
+    //
+    //
+
+
+</script>
+</body>
+</html>
